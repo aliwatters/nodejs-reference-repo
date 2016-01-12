@@ -1,0 +1,4 @@
+{
+    "preset": "google",
+    "verbose": true // some rule we decide to overrid`e
+}
