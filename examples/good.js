@@ -3,8 +3,8 @@
 
 function good() {
   // correctly indented - 2 spaces
-  var good = true; // hoisted
-  if (good === true) { // triple eq
+  var isGood = true; // hoisted
+  if (isGood === true) { // triple eq
     console.log('everything is awesome!'); // single quoted
   }
 }
