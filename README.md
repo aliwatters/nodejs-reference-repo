@@ -22,4 +22,4 @@ npm run lint
 npm run jscs
 ```
  
-TODO: adding git hook as a `pre-push` step - so that non-compliant code cannot be pushed without a `--no-verify` flag.
+TODO: change git hook to a `pre-push` step - so that non-compliant code cannot be pushed without a `--no-verify` flag but can be commited. 
