@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e # any error exit
+
+npm run lint
+npm run jscs
+
+exit 0 # everything ok - no error
