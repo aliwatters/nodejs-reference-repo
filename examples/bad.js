@@ -9,4 +9,4 @@ function example()
 	var bad = false; // not hoisted
 }
 
-example
+example() // and no trailing line on EOF
