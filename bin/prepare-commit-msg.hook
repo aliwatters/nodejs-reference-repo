@@ -1,6 +1,10 @@
 #!/bin/bash
+# TODO: fix limitations
+# 1 - ammends borked
+# 2 - git commit -m "blah" - needs to prepend
+# 3 - pattern match false positive on JIRA-12 and JIRA-123
 
-COMMIT_MSG="$1"
+COMMIT_MSG="$1" # on amend should be something
 BRANCH_NAME=$(git symbolic-ref --short HEAD)
 BRANCH_NAME="${BRANCH_NAME##*/}"
 
@@ -9,7 +13,6 @@ JIRA=false
 if [[ $BRANCH_NAME =~ $JIRA_RE ]]
 then
   JIRA=${BASH_REMATCH[1]}
-  echo "FOUND JIRA [$JIRA] TICKET"
 else
   echo "WARNING: NOT FOUND JIRA TICKET IN BRANCH NAME"
 fi;
@@ -25,26 +28,7 @@ else
   if [[ $JIRA ]]
   then
     sed -i.bak -e "1s/^/[$JIRA] /" $1
-#    sed -i '.bak' "1s/^/[$JIRA] /"  >> $1 #Insert branch name at the start of the commit message file
   else
-    echo "WARNING: JIRA ticket NOT in msg or BRANCH"
+    sed -i.bak -e "1s/^/[WARNING NO JIRA] /" $1
   fi;
 fi;
-
-if [[ $JIRA == false ]]
-then
-  echo "NO JIRA BRANCH"
-fi;
-
-
-# BRANCH_IN_COMMIT=$(grep -c "\[$BRANCH_NAME\]" "$1")
-#
-# FIRSTLINE=$(head -n1 $1)
-#
-# echo $FIRSTLINE
-# if [ -z "$FIRSTLINE"  ] ;then #Check that this is not an amend by checking that the first line is empty
-#     sed -i "1s/^/$BRANCH_NAME: \n/" $1 #Insert branch name at the start of the commit message file
-# fi
-# if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_IN_COMMIT -ge 1 ]]; then
-#   sed -i.bak -e "1s/^/[$BRANCH_NAME] /" $1
-# fi
