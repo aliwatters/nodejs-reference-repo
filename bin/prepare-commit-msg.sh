@@ -1,11 +1,8 @@
 #!/bin/bash
-echo "ARG[1] $1"
 
 COMMIT_MSG="$1"
 BRANCH_NAME=$(git symbolic-ref --short HEAD)
 BRANCH_NAME="${BRANCH_NAME##*/}"
-
-echo "BRANCH NAME: $BRANCH_NAME"
 
 JIRA_RE='([A-Z]+\-[0-9]+)'
 JIRA=false
