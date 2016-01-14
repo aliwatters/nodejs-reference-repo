@@ -27,9 +27,9 @@ else
   # if we're on a jira branch prepend the JIRA if not warn.
   if [[ $JIRA ]]
   then
-    sed -i "1s/^/[$JIRA]: /" $1 #Insert branch name at the start of the commit message file
+    sed -i '.bak' "1s/^/[$JIRA]: /"  >> $1 #Insert branch name at the start of the commit message file
   else
-    echo "WARNING: JIRA ticket NOT in msg or B"
+    echo "WARNING: JIRA ticket NOT in msg or BRANCH"
   fi;
 fi;
 
