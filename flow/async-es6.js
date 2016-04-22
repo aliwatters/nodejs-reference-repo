@@ -1,10 +1,12 @@
+'use strict';
+/*jshint esversion: 6 */
 // introducing lambda's
 
 var async = require('async');
 
 var randomDelay = () => {
   return Math.floor(Math.random() * 200) + 100;
-}
+};
 
 var genStep = (label, cb) => {
   return (cb) => {
@@ -13,8 +15,8 @@ var genStep = (label, cb) => {
       console.log('Executing ' + label + ' ' + delay + 'ms');
       cb(null, 'completed ' + label);
     }, delay);
-  }
-}
+  };
+};
 
 // Step 1 -> Step 2 -> in parallel A B C -> Step 3
 

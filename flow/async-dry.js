@@ -1,3 +1,5 @@
+'use strict';
+
 // clean version
 
 var async = require('async');
@@ -13,7 +15,7 @@ function genStep(label, cb) {
       console.log('Executing ' + label + ' ' + delay + 'ms');
       cb(null, 'completed ' + label);
     }, delay);
-  }
+  };
 }
 
 // Step 1 -> Step 2 -> in parallel A B C -> Step 3
