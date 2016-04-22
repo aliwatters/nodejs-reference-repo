@@ -17,5 +17,8 @@
     "install": "./bin/install.sh",
     "lint": "jshint **/*.js",
     "jscs": "jscs **/*.js"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.3"
   }
 }
