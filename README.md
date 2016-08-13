@@ -8,18 +8,10 @@ Currently includes:
 
 * gitignore - don't check in logs, node_modules, tempfiles and the like.
 * editorconfig - www.editorconfig.org - use the editor of your choice and remain consistent.
-* jshint - lint javascript files - don't put style rules here
-* jscs - javascript code style - command line and plugins available - (-x to write output!)
-
-NOTE: assumes ES5 - to update for ES6 (maybe a branch or another repo)
-NOTE: jscs and jshint - need to be installed globally in order to run under npm
+* eslint - lint javascript files - don't put style rules here
+* jsbeautify - fix formatting automatically
 
 ```
-sudo npm i jscs --global
-sudo npm i jshint --global
-
 npm run lint
-npm run jscs
+npm run beautify
 ```
- 
-TODO: change git hook to a `pre-push` step - so that non-compliant code cannot be pushed without a `--no-verify` flag but can be commited. 
